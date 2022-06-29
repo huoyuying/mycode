@@ -1,6 +1,7 @@
 # mycode
 
-##  select features from 151673-151676
+> select features from 151673-151676
+```
 DLPFC_151673 <- readRDS("F:\\DLPFC\\benchmark\\d151673.rds")
 lib_size <-  ceiling(median(colSums(DLPFC_151673))/1000)*1000
 DLPFC_151673 <- CreateSeuratObject(counts = DLPFC_151673@assays$Spatial@counts)
@@ -37,7 +38,9 @@ list <- unique(list)
 
 list
 write.csv(list,"allmergelist_151673_3.csv")
-
+```
+> filter gene expression
+```
 DLPFC_151673_exp <- data.frame(DLPFC_151673@assays$Spatial@counts)
 merge_151673_exp <- DLPFC_151673_exp[1,]
 
@@ -49,4 +52,5 @@ for(i in v){
 }
 
 setwd("F:\\DLPFC\\151673\\input\\gene selection\\result")
+```
 
